@@ -12,7 +12,14 @@ project_chatbot/
 
 ## Anleitung zur Nutzung
 
-### 1 Virtuelle Umgebung aktivieren
+### 1 Virtuelle Umgebung anlegen und aktivieren
+
+#### Virtuelle Umgebung anlegen
+```bash
+cd project_chatbot
+python -m venv venv
+```
+#### Virtuelle Umgebung aktivieren
 Windows
 ```bash
 venv\Scripts\activate
