@@ -1,22 +1,20 @@
 # Chatbot-Projekt – E3FIAE_Team2
+
 ## Projektstruktur
 ```plaintext
-├─ app/                         # Haupt-Anwendung
-│  ├─ __init__.py              # Flask-App wird hier erstellt
-│  ├─ routes.py                # Flask-Routen 
-│  ├─ static/                 
-│  │  │  └─ style.css          # Design der Webseite
-│  │  │  └─ script.js          # Optional: Chatfunktionen
-│  │  └─ images/              
-│  │     ├─ logo.svg           # Logos & Hintergründe
-│  │     └─ bg.svg
+├─ app/                     # Haupt-Anwendung
+│  ├─ static/
+│  │  ├─ style.css          # Design der Webseite
+│  │  ├─ script.js          # Optional: Chatfunktionen
+│  │  ├─ logo.svg           # Logos & Hintergründe
+│  │  └─ bg.svg
 │  └─ templates/
-│     ├─ index.html            
-│
-├─ venv/                       # Virtuelle Umgebung (nicht in GitHub hochladen!)
-├─ main.py                     # Startpunkt der App → `python main.py`
-├─ requirements.txt            # Notwendige Python-Bibliotheken (Flask usw.)
-└─ README.md                   # Dokumentation
+│     └─ index.html         # Templates
+├─ venv/                    # Virtuelle Umgebung (nicht in GitHub hochladen!)
+├─ scripts/
+|  └─ main.py               # Startpunkt der App → `python main.py`
+├─ requirements.txt         # Notwendige Python-Bibliotheken (Flask usw.)
+└─ readme.md                # Dokumentation
 ```
 
 ## Anleitung zur Nutzung
@@ -41,7 +39,7 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-oder 
+oder
 ```bash
 pip install flask
 ```
@@ -50,11 +48,6 @@ pip install flask
 cd project_chatbot
 source venv/bin/activate
 python scripts/main.py   # Startet Flask auf http://localhost:5050
-```
-### projektstruktur
-
-```project_chatbot/
-
 ```
 ### webseite öffnen
 Browser öffnen → http://localhost:5050
