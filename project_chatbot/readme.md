@@ -19,7 +19,33 @@
 
 ## Anleitung zur Nutzung
 
-### 1. Virtuelle Umgebung anlegen und aktivieren
+### 0. Benötigte Werkzeuge
+
+Zur Nutzung werden `git` und `Python` benötigt.
+
+Windows
+```bash
+winget install --id Git.Git -e --source winget
+winget install --id Python.Python.3.11 -e --source winget
+```
+Linux
+```bash
+apt install git-all
+apt install python3.13-venv
+```
+macOS
+```bash
+brew install git
+brew install python
+```
+
+### 1. Repository klonen
+
+```bash
+git clone https://github.com/NuraiymSadyrbaeva/E3FIAE_Team2.git
+```
+
+### 2. Virtuelle Umgebung anlegen und aktivieren
 
 #### Virtuelle Umgebung anlegen
 ```bash
@@ -35,7 +61,7 @@ Linux/macOS
 ```bash
 source venv/bin/activate
 ```
-### 2. Abhängigkeiten installieren
+### 3. Abhängigkeiten installieren
 ```bash
 pip install -r requirements.txt
 ```
@@ -43,9 +69,9 @@ oder
 ```bash
 pip install flask
 ```
-### 3. Projekt starten
+### 4. Projekt starten
 ```bash
 python scripts/main.py   # Startet Flask auf http://localhost:5050
 ```
-### 4. Webseite öffnen
+### 5. Webseite öffnen
 Browser öffnen → [http://localhost:5050](http://localhost:5050)
