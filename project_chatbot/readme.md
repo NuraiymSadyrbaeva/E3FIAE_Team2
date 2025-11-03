@@ -65,10 +65,6 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
-oder
-```bash
-pip install flask
-```
 ### 4. Projekt starten
 ```bash
 python scripts/main.py   # Startet Flask auf http://localhost:5050
