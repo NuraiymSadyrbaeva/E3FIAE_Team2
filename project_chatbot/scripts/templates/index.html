@@ -15,9 +15,7 @@
       <img class="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="Logo">
       <span class="brand-name">YourChatbot</span>
     </div>
-    <nav class="nav">
-      <button id="themeToggle" aria-label="Theme umschalten">🌓</button>
-    </nav>
+    <!-- Theme-Button entfernt (kein JS) -->
   </header>
 
   <main class="shell">
@@ -32,7 +30,8 @@
         </div>
       </header>
 
-      <div id="chat-window" class="chat-window">
+      <div class="chat-window">
+        <!-- statische Begrüßung wie vorher -->
         <div class="bubble bot with-avatar">
           <img class="bubble-avatar" src="{{ url_for('static', filename='logo.svg') }}" alt="Bot">
           <div class="bubble-body">
@@ -42,18 +41,17 @@
         </div>
       </div>
 
-      <div id="typing" class="typing hidden">
-        <span></span><span></span><span></span>
-      </div>
+      <!-- Tipp-Indikator bleibt ausgeblendet (ohne JS) -->
+      <div class="typing hidden"><span></span><span></span><span></span></div>
 
-      <form id="chat-form" class="chat-form" autocomplete="off">
-        <input id="user-input" type="text" placeholder="Nachricht eingeben …">
-        <button class="btn primary" type="submit">Senden</button>
+      <!-- Formular bleibt rein optisch; Button löst keinen Submit aus -->
+      <form class="chat-form" autocomplete="off">
+        <input type="text" placeholder="Nachricht eingeben …">
+        <button class="btn primary" type="button">Senden</button>
       </form>
     </section>
   </main>
 
   <footer class="site-footer"><small>© 2025 E3FIAE Team 2</small></footer>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
