@@ -52,10 +52,15 @@ git clone https://github.com/NuraiymSadyrbaeva/E3FIAE_Team2.git
 cd project_chatbot
 python -m venv venv
 ```
+If python is already installed it might be called `py` or `python3` instead of `python`.
 #### Virtuelle Umgebung aktivieren
 Windows
 ```bash
 venv\Scripts\activate
+```
+If this script can not be executed in PowerShell on Windows then change the execution policy to allow remotly signed code. By executing the following command in an elevated (administrator) PowerShell:
+```bash
+Set-ExecutionPolicy RemoteSigned
 ```
 Linux/macOS
 ```bash
@@ -64,10 +69,6 @@ source venv/bin/activate
 ### 3. Abhängigkeiten installieren
 ```bash
 pip install -r requirements.txt
-```
-oder
-```bash
-pip install flask
 ```
 ### 4. Projekt starten
 ```bash
