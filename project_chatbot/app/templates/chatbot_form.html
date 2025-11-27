@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="card auth">
+    <header class="card-header">
+      <h1>{{ title }}</h1>
+      <p class="muted small">Erstelle oder bearbeite deinen Chatbot</p>
+    </header>
+
+    <form method="post" class="auth-form">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" value="{{ chatbot.name if chatbot else '' }}">
+
+      <label for="systemprompt">System Prompt</label>
+      <textarea id="systemprompt" name="systemprompt" rows="6">{{ chatbot.systemprompt if chatbot else '' }}</textarea>
+
+      <label for="welcomemessage">Willkommens-Nachricht</label>
+      <textarea id="welcomemessage" name="welcomemessage" rows="3">{{ chatbot.welcomemessage if chatbot else '' }}</textarea>
+
+      <div class="form-actions">
+        <button class="btn primary" type="submit">Speichern</button>
+        <a class="btn" href="{{ url_for('profile') }}">Abbrechen</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}
