@@ -14,6 +14,7 @@
 │     ├─ index.html         # Template für Chat. Variablen: -
 │     ├─ login.html         # Template für Login mit Benutzername und Passwort. Variablen: username
 │     ├─ profile.html       # Template für Benutzerprofil mit Liste der vom Benutzer erstellten Chatbots. Variablen: chatbots
+│     ├─ catalog.html       # Katalog für Chatbots
 │     └─ register.html      # Template für Registrierung mit Erstellung Benutzername und Passwort. Variablen: username
 ├─ venv/                    # Virtuelle Umgebung (nicht in GitHub hochladen!)
 ├─ scripts/
@@ -59,13 +60,14 @@ git clone https://github.com/NuraiymSadyrbaeva/E3FIAE_Team2.git
 cd project_chatbot
 python -m venv venv
 ```
-If python is already installed it might be called `py` or `python3` instead of `python`.
+Wenn `python` bereits installiert ist, kann es sein, dass der Befehl statt python auch `py` oder `python3` lautet.
 #### Virtuelle Umgebung aktivieren
 Windows
 ```bash
 venv\Scripts\activate
 ```
-If this script can not be executed in PowerShell on Windows then change the execution policy to allow remotly signed code. By executing the following command in an elevated (administrator) PowerShell:
+Falls sich dieses Skript in PowerShell unter Windows nicht ausführen lässt, musst du die Ausführungsrichtlinie anpassen, damit lokal erstellte und signierte Skripte erlaubt sind.
+Öffne dazu PowerShell als Administrator und gib folgenden Befehl ein:
 ```bash
 Set-ExecutionPolicy RemoteSigned
 ```
