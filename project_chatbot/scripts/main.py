@@ -129,44 +129,35 @@ def home():
 
 @app.route('/cb/<string:chatbot_id>')
 def cb(chatbot_id):
-    """Zeigt die Chat-Seite für einen spezifischen Chatbot"""
-    # require authentication
-    user = g.get('user')
-    if not user:
-        return redirect(url_for('login'))
+    """Zeigt die Chat-Seite für einen spezifischen Chatbot.
 
+    Public endpoint: users do **not** need to be logged in to view and use the
+    chat interface. Any visitor with the link can open it. The navigation bar
+    still adapts if a logged‑in user is present (username passed to template),
+    but authentication is **not** enforced.
+    """
     chatbot = ChatBot.query.get(chatbot_id)
     if not chatbot:
         flash('Chatbot nicht gefunden.', 'error')
         return redirect(url_for('catalog'))
 
-    # Berechtigung: Admin darf alle, sonst nur eigene
-    if user.username != 'admin' and chatbot.user_id != user.id:
-        flash('Keine Berechtigung für diesen Chatbot.', 'error')
-        return redirect(url_for('catalog'))
-
+    user = g.get('user')
     history = get_chat_history(chatbot_id)
 
     return render_template(
         'chat.html',
         title=chatbot.name or 'Chat',
-        username=user.username,
+        username=user.username if user else None,
         chatbot=chatbot,
         history=history
     )
 
 @app.route('/cb/<string:chatbot_id>/send_json', methods=['POST'])
 def cb_send_json(chatbot_id):
-    user = g.get('user')
-    if not user:
-        return jsonify({'ok': False, 'error': 'not_logged_in'}), 401
-
+    # chat API open to anyone with the link; no login required
     chatbot = ChatBot.query.get(chatbot_id)
     if not chatbot:
         return jsonify({'ok': False, 'error': 'not_found'}), 404
-
-    if user.username != 'admin' and chatbot.user_id != user.id:
-        return jsonify({'ok': False, 'error': 'forbidden'}), 403
 
     data = request.get_json(silent=True) or {}
     msg = (data.get('message') or '').strip()
@@ -193,16 +184,10 @@ def cb_send_json(chatbot_id):
 
 @app.route('/cb/<string:chatbot_id>/reset', methods=['POST'])
 def cb_reset(chatbot_id):
-    user = g.get('user')
-    if not user:
-        return jsonify({'ok': False, 'error': 'not_logged_in'}), 401
-
+    # resetting is also public
     chatbot = ChatBot.query.get(chatbot_id)
     if not chatbot:
         return jsonify({'ok': False, 'error': 'not_found'}), 404
-
-    if user.username != 'admin' and chatbot.user_id != user.id:
-        return jsonify({'ok': False, 'error': 'forbidden'}), 403
 
     # delete ONLY this chatbot session history
     session.pop(_chat_key(chatbot_id), None)
