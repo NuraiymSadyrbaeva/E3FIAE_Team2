@@ -24,6 +24,8 @@ app.config.setdefault(
 )
 app.config.setdefault('SQLALCHEMY_TRACK_MODIFICATIONS', False)
 
+#change default session cookie name to avoid conflicts if multiple Flask apps are running on the same domain (z.B WebShop)
+app.config['SESSION_COOKIE_NAME'] = 'chatbot_session'
 # Initialize the database
 init_db(app, create_tables=True)
 
